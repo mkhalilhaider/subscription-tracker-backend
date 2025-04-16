@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const errorMiddleware = (err, req, res, next) => {
   try {
     let error = { ...err };
-    // error.message = err.message;
+    error.message = err.message;
     console.error(err);
 
     //Mongoose bad Object ID
@@ -28,8 +28,8 @@ const errorMiddleware = (err, req, res, next) => {
     }
 
     res.status(error.statusCode || 500).json({
-      succes: "false",
-      error: `${error.message} || Server Error`,
+      success: "false",
+      error: error.message || "Server Error",
     });
   } catch (error) {
     next(error);

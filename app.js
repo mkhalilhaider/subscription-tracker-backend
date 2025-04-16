@@ -13,7 +13,7 @@ import errorMiddleware from "./middlewares/error.middleware.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser);
+app.use(cookieParser());
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
@@ -24,9 +24,6 @@ app.use(errorMiddleware);
 app.get("/", (req, res) => {
   res.send("Welcome to the Subscription Tracker API!");
 });
-
-//debug console to check the port number after importing in the app.js
-console.log("PORT value in app.js is:", PORT); // 👀
 
 app.listen(PORT || 3000, async () => {
   console.log(
