@@ -1,4 +1,4 @@
-import mongoose, { model } from "mongoose";
+import mongoose from "mongoose";
 
 const subscriptionSchema = new mongoose.Schema(
   {
@@ -77,8 +77,8 @@ const subscriptionSchema = new mongoose.Schema(
 );
 
 subscriptionSchema.pre("save", function (next) {
-// Auto-calculate renewal date if missing
-    if (!this.renewalDate) {
+  // Auto-calculate renewal date if missing
+  if (!this.renewalDate) {
     const renewalPeriod = {
       daily: 1,
       weekly: 7,
@@ -97,8 +97,8 @@ subscriptionSchema.pre("save", function (next) {
     this.status = "expired";
   }
 
- // Convert the currency to uppercase before saving
- if (this.currency) {
+  // Convert the currency to uppercase before saving
+  if (this.currency) {
     this.currency = this.currency.toUpperCase();
   }
 

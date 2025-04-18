@@ -22,7 +22,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/subscriptions", subscriptionRouter);
 
 app.use(errorMiddleware);
-2
+2;
 app.get("/", (req, res) => {
   res.send("Welcome to the Subscription Tracker API!");
 });
