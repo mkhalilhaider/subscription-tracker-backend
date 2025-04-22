@@ -47,7 +47,7 @@ export const signUp = async (req, res, next) => {
     });
 <<<<<<< HEAD
     await session.commitTransaction();
-=======
+
     session.commitTransaction();
 >>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
     session.endSession();
@@ -73,11 +73,9 @@ export const signIn = async (req, res, next) => {
 
     if (!email || !password) {
       const error = new Error("Please provide both email and password.");
-<<<<<<< HEAD
+
       error.statusCode = 400;
-=======
       error.StatusCode = 400;
->>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
       throw error;
     }
 
