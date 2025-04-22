@@ -14,7 +14,11 @@ export const signUp = async (req, res, next) => {
 
     if (!name || !email || !password) {
       const error = new Error("All fields are required!");
+<<<<<<< HEAD
       error.statusCode = 400;
+=======
+      error.StatusCode = 400;
+>>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
       throw error;
     }
 
@@ -41,7 +45,11 @@ export const signUp = async (req, res, next) => {
     const token = JWT.sign({ userId: newUsers[0]._id }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
     });
+<<<<<<< HEAD
     await session.commitTransaction();
+=======
+    session.commitTransaction();
+>>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
     session.endSession();
 
     res.status(201).json({
@@ -65,7 +73,11 @@ export const signIn = async (req, res, next) => {
 
     if (!email || !password) {
       const error = new Error("Please provide both email and password.");
+<<<<<<< HEAD
       error.statusCode = 400;
+=======
+      error.StatusCode = 400;
+>>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
       throw error;
     }
 
@@ -83,7 +95,11 @@ export const signIn = async (req, res, next) => {
 
     if (!isPassword) {
       const error = new Error("Invalid email or password");
+<<<<<<< HEAD
       error.status = 401;
+=======
+      error.StatusCode = 401;
+>>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
       throw error;
     }
 
@@ -106,6 +122,7 @@ export const signIn = async (req, res, next) => {
 
 export const signOut = async (req, res, next) => {
   try {
+<<<<<<< HEAD
     res.status(200).json({
       success: true,
       message: "Logged out successfully",
@@ -114,3 +131,7 @@ export const signOut = async (req, res, next) => {
     next(error);
   }
 };
+=======
+  } catch (error) {}
+};
+>>>>>>> ac0ec141668a12e45d592ffb8d7980edc466c564
